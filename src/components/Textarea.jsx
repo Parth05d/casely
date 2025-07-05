@@ -14,12 +14,13 @@ function Textarea({ showAlert, heading, mode, navStyle }) {
   };
 
   const removeExtraSpaces = () => {
-    setText(text.split(/[ ]+/).join(" "));
+    setText(text.split(/\s+/).join(" "));
     showAlert("Extra spaces removed", "success");
   };
 
   const capitalizedCase = () => {
     const newText = text
+      .toLowerCase()
       .split(" ")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
